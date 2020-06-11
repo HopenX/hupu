@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="/static/element-ui/element-ui@2.9.1.css">
+    <!-- 先引入 Vue -->
+    <script src="/static/element-ui/vue@2.6.10.js"></script>
+    <!-- 引入组件库 -->
+    <script src="/static/element-ui/element-ui@2.9.1.js"></script>
+    <script src="/static/element-ui/axios@0.18.0.min.js"></script>
+    <script src="/static/js/jquery@3.4.1.min.js"></script>
+    <script src="/static/js/jquery.cookie@1.4.1.min.js"></script>
+    <style>
+        .el-main a {
+            text-decoration: none;
+            color: #333;
+        }
+    </style>
+    <script type="text/javascript" src="/static/js/echarts.min.js"></script>
+</head>
+<body>
+<el-container>
+    <div id="app">
+        <div style="margin-bottom: 30px">
+            <el-button type="primary" round @click="addUser()">+ 抓取新用户</el-button>
+        </div>
+    </div>
+    <div id="container" style="height: 500px"></div>
+</el-container>
+
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data: {},
+
+        methods: {
+            drawLine() {
+                var dom = document.getElementById("container");
+                var myChart = echarts.init(dom);
+                var app = {};
+                option = null;
+
+                myChart.setOption({
+                    title: {text: '用户池总数'},
+                    tooltip: {},
+                    xAxis: {
+                        type: 'category',
+                        data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+                    },
+                    yAxis: {
+                        type: 'value'
+                    },
+                    series: [{
+                        data: [8200, 9320, 9010, 9340, 12900, 13300, 13905],
+                        type: 'line'
+                    }]
+                });
+            },
+
+            addUser() {
+                this.$message('功能正在开发中');
+            }
+        },
+        created() {
+            this.drawLine();
+        }
+    });
+</script>
+</html>

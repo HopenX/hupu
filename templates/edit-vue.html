@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="/static/element-ui/element-ui@2.9.1.css">
+    <!-- 先引入 Vue -->
+    <script src="/static/element-ui/vue@2.6.10.js"></script>
+    <!-- 引入组件库 -->
+    <script src="/static/element-ui/element-ui@2.9.1.js"></script>
+    <script src="/static/element-ui/axios@0.18.0.min.js"></script>
+    <script src="/static/js/jquery@3.4.1.min.js"></script>
+    <script src="/static/js/jquery.cookie@1.4.1.min.js"></script>
+    <script src="/static/js/rules.js"></script>
+
+    <style>
+        .el-main a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        body {
+            width: 600px;
+        }
+
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<el-container>
+    <div id="app">
+        <el-header>
+            <h2>新建广告推送</h2>
+        </el-header>
+
+        <el-main>
+            <!-- 添加任务表单开始 -->
+            <template>
+                <el-form ref="form" :model="formData" label-width="100px" :rules="rules">
+
+                    <el-form-item label="广告内容" prop="content">
+                        <el-input type="textarea" :rows="5" v-model="formData.content"></el-input>
+                    </el-form-item>
+
+                    <el-form-item label="推送人数" prop="people">
+                        <el-progress type="dashboard" :percentage="percentage" :color="colors"></el-progress>
+                        <div>
+                            <el-button-group>
+                                <el-button icon="el-icon-minus" @click="decrease"></el-button>
+                                <el-button icon="el-icon-plus" @click="increase"></el-button>
+                            </el-button-group>
+                        </div>
+                        <h3 id="number"></h3>
+                    </el-form-item>
+
+                    <el-form-item label="发送形式">
+                        <el-radio-group v-model="radioType">
+                            <el-radio label="now">立即发送</el-radio>
+                            <el-radio label="cron">定时发送</el-radio>
+                        </el-radio-group>
+                    </el-form-item>
+
+                    <div v-if="radioType === 'cron'">
+                        <el-form-item label="推送日期" prop="run_date">
+                            <el-date-picker
+                                    v-model="formData.run_date"
+                                    type="date"
+                                    value-format="yyyy-MM-dd"
+                                    placeholder="选择日期">
+                            </el-date-picker>
+                        </el-form-item>
+
+                        <el-form-item label="开始时间" prop="run_time">
+                            <el-time-select
+                                    placeholder="选择时间"
+                                    v-model="formData.run_time"
+                                    :picker-options="{
+                                        start: '08:30',
+                                        step: '00:15',
+                                        end: '18:30'
+                                    }">
+                            </el-time-select>
+                        </el-form-item>
+                    </div>
+
+                    <el-form-item label="发送帐号" prop="account">
+                        <el-select v-model="formData.account" placeholder="请选择发送者帐号">
+                            <el-option label="鹏鹄浩宇" value="鹏鹄浩宇"></el-option>
+                            <el-option label="小号-Kitty" value="小号-Kitty"></el-option>
+                            <el-option label="淘宝小号-hgtrr" value="淘宝小号-hgtrr"></el-option>
+                        </el-select>
+                    </el-form-item>
+
+                    <el-form-item>
+                        <el-button type="info" @click="cancel">取消</el-button>
+                        <el-button type="primary" @click="addJob">确定</el-button>
+                    </el-form-item>
+                </el-form>
+            </template>
+            <!-- 添加任务表单结束 -->
+        </el-main>
+    </div>
+</el-container>
+</body>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        mixins: [rules],
+        data: {
+            radioType: 'cron',
+            formData: {
+                run_date: '',
+                run_time: '',
+            },
+            createdTime: '',
+            percentage: 0,
+            totalUser: 13905,
+            colors: [
+                {color: '#f56c6c', percentage: 100},
+                {color: '#e6a23c', percentage: 80},
+                {color: '#5cb87a', percentage: 60},
+                {color: '#1989fa', percentage: 40},
+                {color: '#6f7ad3', percentage: 20}
+            ],
+            rules: {
+                content: [
+                    {required: true, message: '请输入广告文本内容', trigger: 'blur'},
+                    {min: 5, max: 400, message: '长度在 5 到 400 个字符', trigger: 'blur'}
+                ],
+                account: [
+                    {required: true, message: '请选择发送帐号', trigger: 'blur'},
+                ],
+                people: [
+                    {required: true, message: '发送人数不能为 0', trigger: 'blur'},
+                    {min: 1, message: '发送人数不能为 0', trigger: 'blur'}
+                ]
+            }
+
+        },
+
+        methods: {
+            increase() {
+                this.percentage += 10;
+                if (this.percentage > 100) {
+                    this.percentage = 100;
+                }
+                this.formData.people = parseInt(this.percentage * 0.01 * this.totalUser);
+                document.getElementById('number').innerText = "覆盖人数：" + this.formData.people;
+            },
+            decrease() {
+                this.percentage -= 10;
+                if (this.percentage < 0) {
+                    this.percentage = 0;
+                }
+                this.formData.people = parseInt(this.percentage * 0.01 * this.totalUser);
+                document.getElementById('number').innerText = "覆盖人数：" + this.formData.people;
+            },
+
+
+            getDatetime: function () {
+                var d = new Date();
+                var year = d.getFullYear();
+                var month = change(d.getMonth() + 1);
+                var day = change(d.getDate());
+                var hour = change(d.getHours());
+                var minute = change(d.getMinutes());
+                var second = change(d.getSeconds());
+
+                function change(t) {
+                    if (t < 10) {
+                        return "0" + t;
+                    } else {
+                        return t;
+                    }
+                }
+
+                // var time = year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second;
+                var time = year + '-' + month + '-' + day;
+                return time;
+            },
+
+            cancel: function () {
+                window.location.href = "/ad";
+            },
+
+            addJob: function () {
+                if (this.radioType === 'cron' && (typeof(this.formData.run_date) !== "string" || typeof(this.formData.run_time) !== "string"
+                    || this.formData.content === undefined || this.formData.account === undefined || this.percentage === 0)) {
+                    this.$message('请将表单填写完整');
+                    return;
+                }
+
+                this.$prompt('<hr><strong>推送内容:</strong><br>' + this.formData.content + '<br><strong>推送人数:</strong><br>' + this.formData.people
+                    + '<br><strong>推送时间:</strong><br>' + this.formData.run_date + ' @ ' + this.formData.run_time + '<br><strong>推送帐号:</strong><br>'
+                    + this.formData.account + '<br><hr><strong>请输入发送口令:</strong>', '确认无误后发送', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    dangerouslyUseHTMLString: true,
+                }).then(({value}) => {
+                    if (value === '123456') {
+                        this.$message('发送口令正确');
+                        // axios.post("/scheduler/addJob", this.formData
+                        // ).then((response) => {
+                        //     $.cookie("job_id", response.data.job_id)
+                        //     this.jobDetail(response.data.job_id);
+                        //     this.$message({
+                        //         type: response.data.message_type,
+                        //         message: response.data.message
+                        //     });
+                        //     setTimeout(() => {
+                        //         this.cancel()
+                        //     }, 2000)
+                        // });
+                    }
+                    else {
+                        this.$message.error('发送口令错误');
+                    }
+
+                }).catch(() => {
+                    this.$message({
+                        type: 'info',
+                        message: '已取消，未发送'
+                    });
+                });
+
+
+            },
+        },
+        created() {
+            this.formData.run_date = this.getDatetime();
+        }
+    });
+    window.app = app;
+</script>
+</html>

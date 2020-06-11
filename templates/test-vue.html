@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="/static/element-ui/element-ui@2.9.1.css">
+    <!-- 先引入 Vue -->
+    <script src="/static/element-ui/vue@2.6.10.js"></script>
+    <!-- 引入组件库 -->
+    <script src="/static/element-ui/element-ui@2.9.1.js"></script>
+    <script src="/static/element-ui/axios@0.18.0.min.js"></script>
+    <script src="/static/js/jquery@3.4.1.min.js"></script>
+    <script src="/static/js/jquery.cookie@1.4.1.min.js"></script>
+    <script src="/static/js/rules.js"></script>
+
+    <style>
+        .el-main a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        body {
+            width: 600px;
+        }
+
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<el-container>
+    <div id="app">
+        <el-header>
+            <h2>新建小规模测试</h2>
+        </el-header>
+
+        <el-main>
+            <!-- 添加任务表单开始 -->
+            <template>
+                <el-form ref="form" :model="formData" label-width="100px" :rules="rules">
+
+                    <el-form-item label="广告内容">
+                        <el-input type="textarea" :rows="5" v-model="formData.content"></el-input>
+                    </el-form-item>
+
+                    <el-form-item label="发送形式">
+                        <el-radio-group v-model="radioType" @change="changeHandler">
+                            <el-radio label="now">立即发送</el-radio>
+                            <el-radio label="cron">定时发送</el-radio>
+                        </el-radio-group>
+                    </el-form-item>
+
+                    <div v-if="radioType === 'cron'">
+                        <el-form-item label="开始时间">
+                            <el-time-picker
+                                    v-model="formData.run_time"
+                                    arrow-control
+                                    value-format="HH:mm:ss"
+                                    placeholder="选择开始时间">
+                            </el-time-picker>
+                        </el-form-item>
+                    </div>
+
+
+                    <el-form-item label="发送帐号">
+                        <el-select v-model="formData.account" placeholder="请选择发送者帐号">
+                            <el-option label="鹏鹄浩宇" value="1152214965"></el-option>
+                            <el-option label="小号-Kitty" value="840022109"></el-option>
+                            <el-option label="淘宝小号-hgtrr" value="淘宝小号-hgtrr"></el-option>
+                        </el-select>
+                    </el-form-item>
+
+                    <el-form-item label="接收帐号">
+                        <el-input v-model="formData.recv_id" placeholder="请输入接收者虎扑用户 ID"></el-input>
+                        <el-button style="margin-top: 20px;" type="primary" round @click="checkURL()" plain>检查个人页面
+                        </el-button>
+                    </el-form-item>
+
+                    <el-form-item>
+                        <el-button type="info" @click="cancel">取消</el-button>
+                        <el-button type="primary" @click="addJob">确定</el-button>
+                    </el-form-item>
+                </el-form>
+            </template>
+            <!-- 添加任务表单结束 -->
+        </el-main>
+    </div>
+</el-container>
+</body>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            radioType: 'now',
+            formData: {
+                content: '',
+                run_date: '',
+                account: '',
+                recv_id: '',
+                run_time: '立即发送'
+            },
+        },
+
+        methods: {
+            cancel: function () {
+                window.location.href = "/ad";
+                //213964301885423
+            },
+
+            addJob: function () {
+                this.$prompt('<hr><strong>推送内容:</strong><br>' + this.formData.content +
+                    '<br><strong>推送时间:</strong><br>' + this.formData.run_time +
+                    '<br><strong>推送帐号:</strong><br>' + this.formData.account + '<br><strong>接收者虎扑ID:</strong><br>' + this.formData.recv_id +
+                    '<br><hr><strong>请输入发送口令:</strong>', '确认无误后发送', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    dangerouslyUseHTMLString: true,
+                }).then(({value}) => {
+                    if (value === '123456') {
+                        this.$message('发送口令正确');
+                        axios.post("/addTest", this.formData
+                        ).then((response) => {
+                            this.$message({
+                                type: response.data.message_type,
+                                message: response.data.message
+                            });
+                            setTimeout(() => {
+                                this.cancel()
+                            }, 2000)
+                        });
+                        window.location.href = "/dashboard";
+                    }
+                    else {
+                        this.$message.error('发送口令错误');
+                    }
+
+                }).catch(() => {
+                    this.$message({
+                        type: 'info',
+                        message: '已取消，未发送'
+                    });
+                });
+            },
+
+            changeHandler(value) {
+                if (value === 'now') {
+                    this.formData.run_time = '立即发送'
+                }
+            },
+
+            checkURL() {
+                var url = "https://my.hupu.com/" + this.formData.recv_id;
+                window.open(url, '_new');
+            }
+        },
+        created() {
+
+        }
+    });
+    window.app = app;
+</script>
+</html>

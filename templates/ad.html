@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="/static/element-ui/element-ui@2.9.1.css">
+    <!-- 先引入 Vue -->
+    <script src="/static/element-ui/vue@2.6.10.js"></script>
+    <!-- 引入组件库 -->
+    <script src="/static/element-ui/element-ui@2.9.1.js"></script>
+    <script src="/static/element-ui/axios@0.18.0.min.js"></script>
+    <script src="/static/js/jquery@3.4.1.min.js"></script>
+    <script src="/static/js/jquery.cookie@1.4.1.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <style>
+        .el-main a {
+            text-decoration: none;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+<el-container>
+    <div id="app">
+        <el-header style="margin-bottom: 30px">
+            <h2>广告推送</h2>
+            <el-button type="primary" round @click="newFeed()">+ 新建广告推送</el-button>
+            <el-button type="primary" round @click="newTest()" plain>+ 新建小规模测试</el-button>
+        </el-header>
+
+        <el-main>
+            <!-- 显示任务表格开始 -->
+            <template>
+                <el-table :data="tableData" stripe border style="width: 100%"
+                          :default-sort="{prop: 'end_time', order: 'descending'}">
+                    <el-table-column type="index" label="序号" width="50"></el-table-column>
+                    <el-table-column prop="content" label="广告内容" header-align="center"></el-table-column>
+                    <el-table-column prop="people" label="推送人数" width="110" sortable></el-table-column>
+                    <!-- <el-table-column prop="job_id" label="任务id"></el-table-column> -->
+                    <el-table-column prop="date" label="推送日期" width="110" sortable></el-table-column>
+                    <el-table-column prop="timestamp" label="推送时间" width="110" sortable></el-table-column>
+                    <el-table-column prop="status" label="状态" width="90" sortable></el-table-column>
+
+                </el-table>
+            </template>
+            <!-- 显示任务表格结束 -->
+        </el-main>
+
+    </div>
+</el-container>
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+
+            tableData: [],
+            formData: {
+                server_name: $.cookie("server_name"),
+                server_host: $.cookie("server_host"),
+                project_name: $.cookie("project_name"),
+            },
+        },
+        methods: {
+            getjobs: function () {
+                // axios.get("/api/listJobs", {
+                //     params: this.formData
+                // }).then((response) => {
+                //     this.tableData = response.data.jobs;
+                // }).catch(() => {
+                //     this.$message.info("加载失败");
+                // });
+                this.tableData = [{
+                    'content': '版块介绍：股市有风险，投资须谨慎。虎扑不允许违反法律法规、妨害社区秩序、破坏社区氛围的行为，相关内容及账号' +
+                        '一经发现将被处罚，处罚方式包括但不限于更改或删除用户发布的内容、暂停或终止用户使用虎扑的权利。',
+                    'people': '3400',
+                    'date': '06-05',
+                    'timestamp': '13:58 - 16:34',
+                    'status': '已完成'
+                }]
+            },
+            newFeed: function () {
+                var url = "/edit-vue";
+                window.location.href = url;
+            },
+
+            newTest: function () {
+                var url = "/test-vue";
+                window.location.href = url;
+            },
+        },
+        created() {
+            this.getjobs();
+        }
+    })
+</script>
+</html>

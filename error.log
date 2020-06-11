@@ -1,0 +1,612 @@
+2020-06-09 21:36:15,562 - ERROR - app.py - log_exception - 1761 - Exception on /num [GET]
+Traceback (most recent call last):
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1791, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1774, in raise_routing_exception
+    raise request.routing_exception
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/ctx.py", line 336, in match_request
+    self.url_adapter.match(return_rule=True)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/werkzeug/routing.py", line 1960, in match
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1713, in handle_user_exception
+    return self.handle_http_exception(e)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1641, in handle_http_exception
+    handler = self._find_error_handler(e)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1624, in _find_error_handler
+    handler = handler_map.get(cls)
+AttributeError: 'function' object has no attribute 'get'
+2020-06-09 21:36:15,580 - ERROR - app.py - special_exception_handler - 25 - 'function' object has no attribute 'get'
+2020-06-09 21:36:15,631 - ERROR - app.py - log_exception - 1761 - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1791, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1774, in raise_routing_exception
+    raise request.routing_exception
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/ctx.py", line 336, in match_request
+    self.url_adapter.match(return_rule=True)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/werkzeug/routing.py", line 1960, in match
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1713, in handle_user_exception
+    return self.handle_http_exception(e)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1641, in handle_http_exception
+    handler = self._find_error_handler(e)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1624, in _find_error_handler
+    handler = handler_map.get(cls)
+AttributeError: 'function' object has no attribute 'get'
+2020-06-09 21:36:15,633 - ERROR - app.py - special_exception_handler - 25 - 'function' object has no attribute 'get'
+2020-06-11 00:01:55,351 - ERROR - app.py - log_exception - 1761 - Exception on /edit-vue [GET]
+Traceback (most recent call last):
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/xuhaopeng/PycharmProjects/hupu/app.py", line 62, in edit
+    return render_template('edit-vue.html')
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/templating.py", line 135, in render_template
+    context, ctx.app)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/templating.py", line 117, in _render
+    rv = template.render(context)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/xuhaopeng/PycharmProjects/hupu/templates/edit-vue.html", line 54, in top-level template code
+    {{formData.people}}
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/jinja2/environment.py", line 430, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'formData' is undefined
+2020-06-11 00:01:55,362 - ERROR - app.py - special_exception_handler - 24 - 'formData' is undefined
+2020-06-11 00:03:01,724 - ERROR - app.py - log_exception - 1761 - Exception on /edit-vue [GET]
+Traceback (most recent call last):
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/xuhaopeng/PycharmProjects/hupu/app.py", line 62, in edit
+    return render_template('edit-vue.html')
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/templating.py", line 135, in render_template
+    context, ctx.app)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/templating.py", line 117, in _render
+    rv = template.render(context)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/xuhaopeng/PycharmProjects/hupu/templates/edit-vue.html", line 54, in top-level template code
+    {{formData.people}}
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/jinja2/environment.py", line 430, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'formData' is undefined
+2020-06-11 00:03:01,732 - ERROR - app.py - special_exception_handler - 24 - 'formData' is undefined
+2020-06-11 00:03:36,466 - ERROR - app.py - log_exception - 1761 - Exception on /edit-vue [GET]
+Traceback (most recent call last):
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/xuhaopeng/PycharmProjects/hupu/app.py", line 62, in edit
+    return render_template('edit-vue.html')
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/templating.py", line 135, in render_template
+    context, ctx.app)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/templating.py", line 117, in _render
+    rv = template.render(context)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/xuhaopeng/PycharmProjects/hupu/templates/edit-vue.html", line 54, in top-level template code
+    {{formData.people}}
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/jinja2/environment.py", line 430, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'formData' is undefined
+2020-06-11 00:03:36,475 - ERROR - app.py - special_exception_handler - 24 - 'formData' is undefined
+2020-06-11 00:05:08,271 - ERROR - app.py - log_exception - 1761 - Exception on /edit-vue [GET]
+Traceback (most recent call last):
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/xuhaopeng/PycharmProjects/hupu/app.py", line 62, in edit
+    return render_template('edit-vue.html')
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/templating.py", line 135, in render_template
+    context, ctx.app)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/templating.py", line 117, in _render
+    rv = template.render(context)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/xuhaopeng/PycharmProjects/hupu/templates/edit-vue.html", line 54, in top-level template code
+    {{ formData.people }}
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/jinja2/environment.py", line 430, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'formData' is undefined
+2020-06-11 00:05:08,281 - ERROR - app.py - special_exception_handler - 24 - 'formData' is undefined
+2020-06-11 04:44:46,172 - ERROR - app.py - log_exception - 1761 - Exception on /addTest [POST]
+Traceback (most recent call last):
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/xuhaopeng/PycharmProjects/hupu/app.py", line 81, in add_test
+    json.dump(request.json, f)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/__init__.py", line 180, in dump
+    fp.write(chunk)
+io.UnsupportedOperation: not writable
+2020-06-11 04:44:46,184 - ERROR - app.py - special_exception_handler - 25 - not writable
+2020-06-11 04:54:53,137 - ERROR - app.py - log_exception - 1761 - Exception on /testData [GET]
+Traceback (most recent call last):
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/xuhaopeng/PycharmProjects/hupu/app.py", line 94, in test_data
+    data = json.load(f).decode("unicode-escape")
+AttributeError: 'dict' object has no attribute 'decode'
+2020-06-11 04:54:53,143 - ERROR - app.py - special_exception_handler - 25 - 'dict' object has no attribute 'decode'
+2020-06-11 11:36:46,454 - ERROR - app.py - log_exception - 1761 - Exception on /testData [GET]
+Traceback (most recent call last):
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/xuhaopeng/PycharmProjects/hupu/app.py", line 94, in test_data
+    data = json.load(f)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/__init__.py", line 299, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2020-06-11 11:36:46,461 - ERROR - app.py - special_exception_handler - 25 - Expecting value: line 1 column 1 (char 0)
+2020-06-11 12:23:25,619 - ERROR - app.py - log_exception - 1761 - Exception on /testStatus [POST]
+Traceback (most recent call last):
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1816, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1831, in finalize_request
+    response = self.make_response(rv)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1957, in make_response
+    'The view function did not return a valid response. The'
+TypeError: The view function did not return a valid response. The function either returned None or ended without a return statement.
+2020-06-11 12:23:25,623 - ERROR - app.py - special_exception_handler - 25 - The view function did not return a valid response. The function either returned None or ended without a return statement.
+2020-06-11 12:23:45,163 - ERROR - app.py - log_exception - 1761 - Exception on /testStatus [POST]
+Traceback (most recent call last):
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1816, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1831, in finalize_request
+    response = self.make_response(rv)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1957, in make_response
+    'The view function did not return a valid response. The'
+TypeError: The view function did not return a valid response. The function either returned None or ended without a return statement.
+2020-06-11 12:23:45,164 - ERROR - app.py - special_exception_handler - 25 - The view function did not return a valid response. The function either returned None or ended without a return statement.
+2020-06-11 12:23:45,906 - ERROR - app.py - log_exception - 1761 - Exception on /testStatus [POST]
+Traceback (most recent call last):
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1816, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1831, in finalize_request
+    response = self.make_response(rv)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1957, in make_response
+    'The view function did not return a valid response. The'
+TypeError: The view function did not return a valid response. The function either returned None or ended without a return statement.
+2020-06-11 12:23:45,906 - ERROR - app.py - special_exception_handler - 25 - The view function did not return a valid response. The function either returned None or ended without a return statement.
+2020-06-11 12:23:46,155 - ERROR - app.py - log_exception - 1761 - Exception on /testStatus [POST]
+Traceback (most recent call last):
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1816, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1831, in finalize_request
+    response = self.make_response(rv)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1957, in make_response
+    'The view function did not return a valid response. The'
+TypeError: The view function did not return a valid response. The function either returned None or ended without a return statement.
+2020-06-11 12:23:46,155 - ERROR - app.py - special_exception_handler - 25 - The view function did not return a valid response. The function either returned None or ended without a return statement.
+2020-06-11 12:26:20,034 - ERROR - app.py - log_exception - 1761 - Exception on /testStatus [POST]
+Traceback (most recent call last):
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1816, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1831, in finalize_request
+    response = self.make_response(rv)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1957, in make_response
+    'The view function did not return a valid response. The'
+TypeError: The view function did not return a valid response. The function either returned None or ended without a return statement.
+2020-06-11 12:26:20,053 - ERROR - app.py - special_exception_handler - 25 - The view function did not return a valid response. The function either returned None or ended without a return statement.
+2020-06-11 12:26:36,723 - ERROR - app.py - log_exception - 1761 - Exception on /testStatus [POST]
+Traceback (most recent call last):
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1816, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1831, in finalize_request
+    response = self.make_response(rv)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1957, in make_response
+    'The view function did not return a valid response. The'
+TypeError: The view function did not return a valid response. The function either returned None or ended without a return statement.
+2020-06-11 12:26:36,724 - ERROR - app.py - special_exception_handler - 25 - The view function did not return a valid response. The function either returned None or ended without a return statement.
+2020-06-11 12:26:37,677 - ERROR - app.py - log_exception - 1761 - Exception on /testStatus [POST]
+Traceback (most recent call last):
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1816, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1831, in finalize_request
+    response = self.make_response(rv)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1957, in make_response
+    'The view function did not return a valid response. The'
+TypeError: The view function did not return a valid response. The function either returned None or ended without a return statement.
+2020-06-11 12:26:37,677 - ERROR - app.py - special_exception_handler - 25 - The view function did not return a valid response. The function either returned None or ended without a return statement.
+2020-06-11 12:26:38,238 - ERROR - app.py - log_exception - 1761 - Exception on /testStatus [POST]
+Traceback (most recent call last):
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1816, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1831, in finalize_request
+    response = self.make_response(rv)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1957, in make_response
+    'The view function did not return a valid response. The'
+TypeError: The view function did not return a valid response. The function either returned None or ended without a return statement.
+2020-06-11 12:26:38,239 - ERROR - app.py - special_exception_handler - 25 - The view function did not return a valid response. The function either returned None or ended without a return statement.
+2020-06-11 12:29:07,511 - ERROR - app.py - log_exception - 1761 - Exception on /testStatus [POST]
+Traceback (most recent call last):
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1816, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1831, in finalize_request
+    response = self.make_response(rv)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1957, in make_response
+    'The view function did not return a valid response. The'
+TypeError: The view function did not return a valid response. The function either returned None or ended without a return statement.
+2020-06-11 12:29:07,514 - ERROR - app.py - special_exception_handler - 25 - The view function did not return a valid response. The function either returned None or ended without a return statement.
+2020-06-11 12:30:43,937 - ERROR - app.py - log_exception - 1761 - Exception on /testStatus [POST]
+Traceback (most recent call last):
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1816, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1831, in finalize_request
+    response = self.make_response(rv)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1957, in make_response
+    'The view function did not return a valid response. The'
+TypeError: The view function did not return a valid response. The function either returned None or ended without a return statement.
+2020-06-11 12:30:43,938 - ERROR - app.py - special_exception_handler - 25 - The view function did not return a valid response. The function either returned None or ended without a return statement.
+2020-06-11 12:47:04,732 - ERROR - app.py - log_exception - 1761 - Exception on /testStatus [GET]
+Traceback (most recent call last):
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/xuhaopeng/PycharmProjects/hupu/app.py", line 107, in test_status
+    data = json.load(f)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/__init__.py", line 299, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2020-06-11 12:47:04,738 - ERROR - app.py - special_exception_handler - 25 - Expecting value: line 1 column 1 (char 0)
+2020-06-11 12:47:05,686 - ERROR - app.py - log_exception - 1761 - Exception on /testStatus [GET]
+Traceback (most recent call last):
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/xuhaopeng/PycharmProjects/hupu/app.py", line 107, in test_status
+    data = json.load(f)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/__init__.py", line 299, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2020-06-11 12:47:05,687 - ERROR - app.py - special_exception_handler - 25 - Expecting value: line 1 column 1 (char 0)
+2020-06-11 12:47:06,690 - ERROR - app.py - log_exception - 1761 - Exception on /testStatus [GET]
+Traceback (most recent call last):
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/xuhaopeng/PycharmProjects/hupu/app.py", line 107, in test_status
+    data = json.load(f)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/__init__.py", line 299, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2020-06-11 12:47:06,691 - ERROR - app.py - special_exception_handler - 25 - Expecting value: line 1 column 1 (char 0)
+2020-06-11 12:47:07,694 - ERROR - app.py - log_exception - 1761 - Exception on /testStatus [GET]
+Traceback (most recent call last):
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/xuhaopeng/PycharmProjects/hupu/app.py", line 107, in test_status
+    data = json.load(f)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/__init__.py", line 299, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2020-06-11 12:47:07,695 - ERROR - app.py - special_exception_handler - 25 - Expecting value: line 1 column 1 (char 0)
+2020-06-11 12:47:08,693 - ERROR - app.py - log_exception - 1761 - Exception on /testStatus [GET]
+Traceback (most recent call last):
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/xuhaopeng/PycharmProjects/hupu/app.py", line 107, in test_status
+    data = json.load(f)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/__init__.py", line 299, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2020-06-11 12:47:08,694 - ERROR - app.py - special_exception_handler - 25 - Expecting value: line 1 column 1 (char 0)
+2020-06-11 12:47:09,696 - ERROR - app.py - log_exception - 1761 - Exception on /testStatus [GET]
+Traceback (most recent call last):
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/xuhaopeng/PycharmProjects/hupu/app.py", line 107, in test_status
+    data = json.load(f)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/__init__.py", line 299, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2020-06-11 12:47:09,697 - ERROR - app.py - special_exception_handler - 25 - Expecting value: line 1 column 1 (char 0)
+2020-06-11 12:47:10,699 - ERROR - app.py - log_exception - 1761 - Exception on /testStatus [GET]
+Traceback (most recent call last):
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/xuhaopeng/PycharmProjects/hupu/app.py", line 107, in test_status
+    data = json.load(f)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/__init__.py", line 299, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2020-06-11 12:47:10,699 - ERROR - app.py - special_exception_handler - 25 - Expecting value: line 1 column 1 (char 0)
+2020-06-11 12:47:11,703 - ERROR - app.py - log_exception - 1761 - Exception on /testStatus [GET]
+Traceback (most recent call last):
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/xuhaopeng/PycharmProjects/hupu/app.py", line 107, in test_status
+    data = json.load(f)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/__init__.py", line 299, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2020-06-11 12:47:11,704 - ERROR - app.py - special_exception_handler - 25 - Expecting value: line 1 column 1 (char 0)
+2020-06-11 12:47:12,709 - ERROR - app.py - log_exception - 1761 - Exception on /testStatus [GET]
+Traceback (most recent call last):
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/xuhaopeng/Library/Python/3.6/lib/python/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/xuhaopeng/PycharmProjects/hupu/app.py", line 107, in test_status
+    data = json.load(f)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/__init__.py", line 299, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2020-06-11 12:47:12,710 - ERROR - app.py - special_exception_handler - 25 - Expecting value: line 1 column 1 (char 0)

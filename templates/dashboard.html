@@ -1,0 +1,229 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- import CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <style>
+        .text {
+            font-size: 14px;
+        }
+
+        .item {
+            margin-bottom: 18px;
+        }
+
+        .clearfix:before,
+        .clearfix:after {
+            display: table;
+            content: "";
+        }
+
+        .clearfix:after {
+            clear: both
+        }
+
+        .box-card {
+            margin: 0 10%;
+            text-align: center;
+        }
+
+        .small_num {
+            font-size: 12px;
+        }
+
+        .num {
+            font-size: 24px;
+        }
+
+        .img {
+            height: auto;
+            width: 120px;
+            margin: 0 auto;
+        }
+
+        .parent {
+            display: flex;
+        }
+
+        .status_txt {
+            text-align: left;
+        }
+
+        .status_txt div {
+            margin-bottom: 10px;
+        }
+
+    </style>
+</head>
+<body>
+<el-container>
+    <div id="app">
+        <el-col :span="24">
+            <div class="parent">
+                <el-image class="img" src="/static/hupu.png" fit="fit" center="true"></el-image>
+            </div>
+        </el-col>
+
+        <el-col :span="6">
+            <el-card class="box-card">
+                <div slot="header" class="clearfix">
+                    <i class="el-icon-user"></i>
+                    <span>精准用户总数</span>
+                </div>
+                <div class="num item">
+                    13905 <span class="small_num">人</span>
+                </div>
+            </el-card>
+        </el-col>
+        <el-col :span="6">
+            <el-card class="box-card">
+                <div slot="header" class="clearfix">
+                    <i class="el-icon-finished"></i>
+                    <span>今日推送人次</span>
+                </div>
+                <div class="num item">
+                    3400 <span class="small_num">人</span>
+                </div>
+
+            </el-card>
+        </el-col>
+        <el-col :span="6">
+            <el-card class="box-card">
+                <div slot="header" class="clearfix">
+                    <i class="el-icon-data-analysis"></i>
+                    <span>总推送人次</span>
+                </div>
+                <div class="num item">
+                    43203 <span class="small_num">人</span>
+                </div>
+
+            </el-card>
+        </el-col>
+        <el-col :span="6">
+            <el-card class="box-card">
+                <div slot="header" class="clearfix">
+                    <i class="el-icon-chat-line-square"></i>
+                    <span>总推送条数</span>
+                </div>
+                <div class="num item">
+                    45 <span class="small_num">条</span>
+                </div>
+
+            </el-card>
+        </el-col>
+
+        <el-col :span="24" style="margin-top: 40px">
+            <el-card class="box-card">
+                <div slot="header" class="clearfix">
+                    <i class="el-icon-upload2"></i>当前任务状态
+                </div>
+                <div class="status_txt">
+                    <span id="task_num">没有任务</span>正在运行
+                    <div>发送内容：<span id="content"></span><br></div>
+                    <div>开始时间：<span id="run_time"></span><br></div>
+                    <div>发送帐号：<span id="account"></span><br></div>
+                    <div>接受帐号：<span id="recv_id"></span><br></div>
+                    <div>当前状态：<span id="status"></span><br></div>
+                    <el-progress :text-inside="true" :stroke-width="26" :percentage="percentage"></el-progress>
+                    <el-button type="primary" round @click="update()" plain>刷新</el-button>
+                </div>
+
+
+            </el-card>
+        </el-col>
+
+    </div>
+</el-container>
+</body>
+<!-- import Vue before Element -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!-- import JavaScript -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            cur_tasks: 0,
+            percentage: 0,
+            suc: 0,
+            timer: null,
+            dic: {}
+        },
+
+        methods: {
+            getCur: function () {
+                axios.get('/testData'
+                ).then((response) => {
+                    var dic = response.data;
+                    this.dic = dic;
+                    var len = Object.keys(dic).length;
+
+                    if (len > 0) {
+                        this.insert();
+                        this.update();
+                    }
+                });
+            },
+
+            insert: function () {
+                document.getElementById('content').innerText = this.dic.content;
+                document.getElementById('run_time').innerText = this.dic.run_time;
+                document.getElementById('account').innerText = this.dic.account;
+                document.getElementById('recv_id').innerText = this.dic.recv_id;
+            },
+
+            update: function () {
+                // console.log(this.cur_tasks);
+                if(this.cur_tasks > 0)
+                    document.getElementById('task_num').innerText = ' ';
+                axios.get('/testStatus'
+                ).then((response) => {
+                    var dic = response.data;
+                    var len = Object.keys(dic).length;
+                    if (len > 0) {
+                        this.percentage = parseInt(dic.step) * 25;
+                        document.getElementById('status').innerText = dic.desc;
+                        console.log('step', parseInt(dic.step));
+                        if (parseInt(dic.step) > 0)
+                            this.cur_tasks = 1;
+                        if (parseInt(dic.step) === 4) {
+                            this.suc = 1;
+                            this.cur_tasks = 0;
+                            document.getElementById('task_num').innerText = '没有任务';
+                        }
+                    }
+                });
+            },
+
+            sleep: function (time) {
+                var startTime = new Date().getTime() + parseInt(time, 10);
+                while (new Date().getTime() < startTime) {
+                }
+            },
+        },
+
+        created() {
+            this.getCur();
+        },
+
+        mounted() {
+            if (this.timer) {
+                clearInterval(this.timer);
+            } else {
+                this.timer = setInterval(() => {
+                    this.update();
+                    // if (this.suc === 1) {
+                    //     clearInterval(this.timer);
+                    // }
+                }, 2000);
+            }
+        },
+
+        destroyed() {
+            clearInterval(this.timer);
+        }
+
+    })
+</script>
+</html>
